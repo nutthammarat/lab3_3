@@ -40,7 +40,7 @@ class OXTest {
     @Test
     void putOverTable(){
         OX ox = new OX();
-       assertFalse(ox.put(0, -1));
+       assertFalse(ox.put(-1, -1));
         assertFalse(ox.put(3, -1));
         assertFalse(ox.put(2, -1));
         assertFalse(ox.put(5, -1));
