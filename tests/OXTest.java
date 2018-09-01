@@ -75,6 +75,7 @@ class OXTest {
             assertFalse(ox.checkWin(1,0));
             assertFalse(ox.checkWin(1,1));
             assertFalse(ox.checkWin(1,2));
+            assertFalse(ox.checkWin(1,2));
     }
     @Test
     void checkWinCol2(){
