@@ -11,18 +11,34 @@ public class Game {
             input();
             if(ox.checkWin(col,row)){
                 printTable();
-                System.out.println(ox.getCurrentPlayer() + " " + "Win");
+                printWin();
+                printScore();
                 ox.reset();
                 continue;
             }
             if(ox.isDraw()){
                 printTable();
-                System.out.println("Draw");
+                printScore();
+                printDraws("Draw");
                 ox.reset();
                 continue;
             }
             ox.switchPlayer();
         }
+    }
+
+    private static void printDraws(String draw) {
+        System.out.println(draw);
+    }
+
+    private static void printWin() {
+        System.out.println(ox.getCurrentPlayer() + " " + "Win");
+    }
+
+    private static void printScore() {
+        printDraws("X win : " + ox.getScoreX());
+        printDraws("O win : " + ox.getScoreO());
+        printDraws("Draw : " + ox.getScoreDraw());
     }
 
     private static void input() {
@@ -34,7 +50,7 @@ public class Game {
         row = sc.nextInt();
         canPut = ox.put(col,row);
             if(!canPut){
-            System.out.println("Please input number between 0-2");
+                printDraws("Please input number between 0-2");
             }
         }while (!canPut);
 

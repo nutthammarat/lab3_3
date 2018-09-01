@@ -165,6 +165,45 @@ class OXTest {
         assertTrue(ox.isDraw());
 
     }
+    @Test
+    void getScoreX(){
+        OX ox = new OX();
+        assertEquals(0,ox.getScoreX());
+        ox.put(0,0);
+        ox.put(0,1);
+        ox.put(0,2);
+        assertEquals(1,ox.getScoreX());
+    }
+    @Test
+    void getScoreO(){
+        OX ox = new OX();
+        ox.switchPlayer();
+        assertEquals(0,ox.getScoreO());
+        ox.put(0,0);
+        ox.put(1,1);
+        ox.put(2,2);
+        assertEquals(1,ox.getScoreO());
+    }
+    @Test
+    void getScoreDraw(){
+        OX ox = new OX();
+        assertEquals(0,ox.getScoreDraw());
+        ox.put(0,0);
+        ox.put(0,1);
+        ox.put(0,2);
+        assertFalse(ox.isDraw());
+
+        ox.put(1,0);
+        ox.put(1,1);
+        ox.put(1,2);
+        assertFalse(ox.isDraw());
+
+        ox.put(2,0);
+        ox.put(2,1);
+        ox.put(2,2);
+        assertTrue(ox.isDraw());
+        assertEquals(1,ox.getScoreDraw());
+    }
 
 
 }

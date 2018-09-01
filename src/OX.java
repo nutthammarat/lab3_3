@@ -5,9 +5,18 @@ public class OX {
             {"1","-","-","-" },
             {"2","-","-","-" },};
     private String currentPlayer = "X";
-    private int turnCount=0;
+    private int turnCount;
+    private int scoreX ;
+    private int scoreO ;
+    private int scoreDraw;
 
-
+    public OX(){
+        currentPlayer = "X";
+        turnCount = 0;
+        scoreX = 0;
+        scoreO = 0;
+        scoreDraw = 0;
+    }
     public String getTableString() {
         String result = "";
         for(int i=0; i < 4; i++ ){
@@ -42,6 +51,16 @@ public class OX {
                 return false;
         }
         turnCount++;
+        if(checkWin(col,row)){
+            if(currentPlayer.equals("X")){
+                scoreX++;
+            }else if(currentPlayer.equals("O")){
+                scoreO++;
+            }
+        }
+        if(isDraw()){
+            scoreDraw++;
+        }
         return  true;
     }
 
@@ -118,5 +137,18 @@ public class OX {
             return false;
         }
         return true;
+    }
+
+
+    public int getScoreX() {
+        return  scoreX;
+    }
+
+    public int getScoreO() {
+        return scoreO;
+    }
+
+    public int getScoreDraw() {
+        return scoreDraw;
     }
 }
