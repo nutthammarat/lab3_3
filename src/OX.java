@@ -47,7 +47,7 @@ public class OX {
                 return  false;
             }
             table[row+1][col+1] = currentPlayer;
-        }catch (Exception e){
+        }catch (ArrayIndexOutOfBoundsException e){
                 return false;
         }
         turnCount++;
@@ -58,7 +58,7 @@ public class OX {
                 scoreO++;
             }
         }
-        if(isDraw()){
+       else if(isDraw()){
             scoreDraw++;
         }
         return  true;
@@ -69,7 +69,7 @@ public class OX {
             return  null;
         }
 
-        return table[col+1][row+1];
+        return table[row+1][col+1];
     }
 
     public boolean checkWin(int col, int row) {
@@ -126,6 +126,7 @@ public class OX {
             }
         }
         currentPlayer = "X";
+        turnCount = 0;
     }
 
     public int getTurnCount() {

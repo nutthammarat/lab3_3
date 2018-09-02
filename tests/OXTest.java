@@ -133,7 +133,7 @@ class OXTest {
         ox.put(0,2);
         ox.reset();
         assertEquals(" 012\n" +
-                "0---\n" +
+                "0---\n"  +
                 "1---\n" +
                 "2---\n", ox.getTableString());
         assertEquals("X",ox.getCurrentPlayer());

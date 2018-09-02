@@ -19,7 +19,7 @@ public class Game {
             if(ox.isDraw()){
                 printTable();
                 printScore();
-                printDraws("Draw");
+                printDraws("Draw" );
                 ox.reset();
                 continue;
             }
